@@ -15,9 +15,7 @@ public class AccountTransitionedEvent extends ApplicationEvent {
     public AccountTransitionedEvent(Object source, AccountStatus accountStatus, AccountDto accountDto) {
         super(source);
         this.accountDto = accountDto;
-        this.accountStatus=accountStatus;
-
+        this.accountStatus = accountStatus;
     }
-
 }
 

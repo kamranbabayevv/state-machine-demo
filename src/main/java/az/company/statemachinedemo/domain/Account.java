@@ -7,6 +7,8 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Data;
 
+import java.math.BigDecimal;
+
 @Entity
 @Data
 public class Account {
@@ -15,6 +17,12 @@ public class Account {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    public AccountStatus status;
+    private AccountStatus status;
+
+    private String accountNumber;
+
+    private String ownerName;
+
+    private BigDecimal balance;
 }
 

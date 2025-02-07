@@ -51,7 +51,7 @@ public class AccountTransitionService implements TransitionService<AccountDto> {
      */
     @Transactional
     public AccountDto transition(Long id, String transition) {
-        Transition accountTransition = transitionsMap.get(transition.toLowerCase());
+        var accountTransition = transitionsMap.get(transition);
         if (accountTransition == null) {
             throw new IllegalArgumentException("Unknown transition: " + transition);
         }
@@ -68,7 +68,7 @@ public class AccountTransitionService implements TransitionService<AccountDto> {
     @PostConstruct
     private void initTransitions() {
         Map<String, Transition> transitionHashMap = new HashMap<>();
-        for (Transition accountTransition : transitions) {
+        for (var accountTransition : transitions) {
             if (transitionHashMap.containsKey(accountTransition.getName())) {
                 throw new IllegalStateException("Duplicate transition :" + accountTransition.getName());
             }
